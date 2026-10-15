@@ -1,0 +1,409 @@
+/* ==========================================================================
+   A Little Universe for Shimu — Design System
+   Colors, typography, paper textures, and quiet cinematic details.
+   ========================================================================== */
+
+@import 'tailwindcss';
+
+/* ---------- Local fonts (work offline, no CDN) ---------- */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorantgaramond-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/cormorantgaramond-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/cormorantgaramond-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/cormorantgaramond-400-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/cormorantgaramond-500-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/karla-300.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/karla-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/karla-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/karla-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/caveat-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/caveat-600.woff2') format('woff2');
+}
+
+/* ---------- Theme ---------- */
+@theme {
+  /* Warm cream paper */
+  --color-cream: #f7f0e6;
+  --color-cream-soft: #faf5ed;
+  --color-cream-deep: #efe3d1;
+  --color-parchment: #f2e7d5;
+
+  /* Dusty rose & blush */
+  --color-blush: #efcfc9;
+  --color-blush-soft: #f6e3de;
+  --color-rose: #c98b8b;
+  --color-dusty-rose: #b76e79;
+  --color-rose-deep: #9e5560;
+
+  /* Burgundy */
+  --color-burgundy: #6e2a3a;
+  --color-burgundy-deep: #4a1c28;
+  --color-wine: #3d1522;
+
+  /* Muted brown ink */
+  --color-cocoa: #6b5344;
+  --color-cocoa-soft: #8a7060;
+  --color-ink: #3b2b2e;
+  --color-ink-soft: #5c4a4d;
+
+  /* Golden accents */
+  --color-gold: #c9a227;
+  --color-gold-soft: #d9b87c;
+  --color-gold-pale: #ecdcb8;
+
+  /* Night sky */
+  --color-night: #241823;
+  --color-night-soft: #322233;
+  --color-night-blue: #2a2440;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', 'Times New Roman', serif;
+  --font-body: 'Karla', 'Helvetica Neue', 'Segoe UI', sans-serif;
+  --font-hand: 'Caveat', 'Segoe Script', 'Bradley Hand', cursive;
+
+  --shadow-polaroid: 0 10px 30px -12px rgba(59, 43, 46, 0.35), 0 2px 8px -2px rgba(59, 43, 46, 0.12);
+  --shadow-lift: 0 24px 60px -20px rgba(59, 43, 46, 0.4), 0 8px 24px -12px rgba(59, 43, 46, 0.18);
+  --shadow-glow-gold: 0 0 40px -8px rgba(201, 162, 39, 0.45);
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-blush);
+  color: var(--color-burgundy-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-dusty-rose);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Slim, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-rose);
+  border-radius: 99px;
+  border: 2px solid var(--color-cream-deep);
+}
+
+/* ---------- Typography helpers ---------- */
+.font-display {
+  font-family: var(--font-display);
+}
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* ---------- Film grain overlay ---------- */
+.grain-overlay {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain-shift 8s steps(10) infinite;
+}
+
+@keyframes grain-shift {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-2%, 1%); }
+  40% { transform: translate(1%, -2%); }
+  60% { transform: translate(-1%, 2%); }
+  80% { transform: translate(2%, 1%); }
+}
+
+/* ---------- Paper ---------- */
+.paper {
+  background-color: var(--color-cream-soft);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(239, 207, 201, 0.22), transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(217, 184, 124, 0.16), transparent 50%),
+    url('/images/paper-texture.jpg');
+  background-size: auto, auto, 480px;
+  background-blend-mode: normal, normal, multiply;
+}
+
+.paper-dark {
+  background-color: var(--color-night);
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(110, 42, 58, 0.55), transparent 55%),
+    radial-gradient(ellipse at 90% 85%, rgba(201, 162, 39, 0.12), transparent 50%);
+}
+
+/* Deckle / torn edge card */
+.torn-edge {
+  clip-path: polygon(
+    0% 2%, 3% 0.6%, 8% 1.8%, 14% 0.4%, 22% 1.6%, 30% 0.5%, 40% 1.4%,
+    52% 0.3%, 63% 1.5%, 74% 0.5%, 85% 1.7%, 93% 0.6%, 100% 1.8%,
+    99% 12%, 100% 25%, 98.8% 38%, 100% 52%, 99% 66%, 100% 80%, 98.6% 90%, 99.4% 100%,
+    88% 98.8%, 76% 100%, 64% 98.6%, 52% 100%, 40% 98.7%, 28% 100%, 16% 98.6%, 6% 99.6%, 0% 98%,
+    1% 85%, 0% 70%, 1.2% 55%, 0% 40%, 1% 25%, 0% 12%
+  );
+}
+
+/* ---------- Washi tape ---------- */
+.washi {
+  position: absolute;
+  height: 26px;
+  opacity: 0.72;
+  mix-blend-mode: multiply;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.22) 0 6px,
+    rgba(255, 255, 255, 0) 6px 12px
+  );
+  box-shadow: 0 1px 3px rgba(59, 43, 46, 0.12);
+}
+
+/* ---------- Wax seal ---------- */
+.wax-seal {
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.32), transparent 42%),
+    radial-gradient(circle at 70% 75%, rgba(0, 0, 0, 0.28), transparent 55%),
+    linear-gradient(145deg, var(--color-dusty-rose), var(--color-burgundy));
+  box-shadow:
+    inset 0 -2px 6px rgba(0, 0, 0, 0.25),
+    0 4px 10px -2px rgba(74, 28, 40, 0.45);
+}
+
+/* ---------- Film strip ---------- */
+.film-strip {
+  background: linear-gradient(180deg, #2a2126 0%, #221a1f 100%);
+  box-shadow: var(--shadow-lift);
+}
+.film-sprockets {
+  background-image: radial-gradient(circle, var(--color-cream) 38%, transparent 40%);
+  background-size: 22px 22px;
+  background-position: 11px center;
+  background-repeat: repeat-x;
+}
+
+/* ---------- Envelope ---------- */
+.envelope-body {
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.28), transparent 40%),
+    linear-gradient(145deg, var(--color-parchment), var(--color-cream-deep));
+  box-shadow: var(--shadow-lift);
+}
+
+/* ---------- Light leak ---------- */
+.light-leak {
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(232, 201, 138, 0.28),
+    transparent 60%
+  );
+}
+
+/* ---------- Golden particle shimmer ---------- */
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.gold-mote {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, var(--color-gold-pale), rgba(201, 162, 39, 0));
+  animation: float-up linear infinite;
+  pointer-events: none;
+}
+
+/* ---------- Flame flicker ---------- */
+@keyframes flame {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1) translateY(0);
+    opacity: 1;
+  }
+  25% {
+    transform: scaleY(1.08) scaleX(0.94) translateY(-1px);
+    opacity: 0.92;
+  }
+  50% {
+    transform: scaleY(0.95) scaleX(1.05) translateY(0.5px);
+    opacity: 1;
+  }
+  75% {
+    transform: scaleY(1.05) scaleX(0.97) translateY(-0.5px);
+    opacity: 0.95;
+  }
+}
+
+.flame {
+  transform-origin: 50% 100%;
+  animation: flame 1.1s ease-in-out infinite;
+}
+
+/* ---------- Smoke wisp ---------- */
+@keyframes smoke {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-26px) scale(1.7);
+    opacity: 0;
+  }
+}
+.smoke-wisp {
+  animation: smoke 1.4s ease-out forwards;
+}
+
+/* ---------- Twinkle ---------- */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ---------- Marquee (film strip auto-drift) ---------- */
+@keyframes drift-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ---------- Underline flourish ---------- */
+.flourish-underline {
+  position: relative;
+  display: inline-block;
+}
+.flourish-underline::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.35em;
+  height: 0.5em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M4 8 C 40 2, 80 11, 120 6 S 180 2, 196 7' fill='none' stroke='%23b76e79' stroke-width='2.2' stroke-linecap='round' opacity='0.7'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .grain-overlay {
+    animation: none;
+  }
+}
+
+/* ---------- No-JS safety ---------- */
+noscript {
+  display: block;
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-display);
+}
