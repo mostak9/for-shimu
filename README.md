@@ -188,6 +188,39 @@ The site is 100% static. Other easy options:
 
 ---
 
+## ✦ Edit something & publish it again
+
+Republishing is automatic: **anything merged to `main` goes live in about a minute.**
+
+### Way 1 — Just ask
+If this project is being managed in an AI chat (it is), simply say
+*"change the letter intro to…"* or *"put this photo as the hero"* —
+the edit, commit, and deploy happen for you.
+
+### Way 2 — Edit on GitHub.com (works on a phone)
+1. Open the repo → navigate to the file (e.g. `src/config/content.js`)
+2. Click the **✏️ pencil icon**, make your change
+3. **Commit changes…** to branch `main`
+4. The **Actions** tab builds, tests, and publishes automatically —
+   look for the green ✓, then hard-refresh the site (Ctrl/Cmd + Shift + R).
+   *(GitHub's cache may take a few minutes to fully update.)*
+
+**Photos:** `public/images` → *Add file → Upload files*, then point the
+`image:` paths in `src/config/content.js` at your new file names.
+**Song:** upload as `public/audio/our-song.mp3`.
+
+### Way 3 — On a computer
+```bash
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
+cd YOUR-REPO      # edit files…
+git add . && git commit -m "update" && git push
+```
+
+> Tip: don't edit the same file in two places at once (e.g. GitHub.com AND
+> a local copy) — you'll get merge conflicts. One place at a time.
+
+---
+
 ## ✦ A suggestion for the moment you give it to her
 
 Send her the link with one line, something like:
