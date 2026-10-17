@@ -4,3 +4,11 @@ dist
 *.local
 scripts/smoke-app.cjs
 .npm/
+
+# tooling & sandbox state — never commit these
+.config/
+.gitconfig
+bin/
+.local/
+.cache/
+tmp/

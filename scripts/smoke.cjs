@@ -96,6 +96,9 @@ global.Image = window.Image;
 global.IntersectionObserver = window.IntersectionObserver;
 global.ResizeObserver = window.ResizeObserver || FakeObserver;
 global.AudioContext = window.AudioContext || class {};
+/* framer-motion passes AbortSignals into addEventListener — must be jsdom's own */
+global.AbortController = window.AbortController;
+global.AbortSignal = window.AbortSignal;
 
 /* silence expected act()/noise, keep errors */
 const errors = [];

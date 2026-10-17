@@ -49,8 +49,12 @@ function Experience() {
           <motion.div
             key={`intro-${replayToken}`}
             initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 1.04, filter: 'blur(6px)' }}
-            transition={{ duration: 0.85, ease: 'easeInOut' }}
+            exit={{
+              opacity: 0,
+              scale: 1.08,
+              filter: 'blur(8px)',
+              transition: { duration: 1.05, ease: [0.65, 0, 0.35, 1] },
+            }}
             className="relative z-30"
           >
             <OpeningScreen onComplete={enterMain} />
@@ -58,9 +62,9 @@ function Experience() {
         ) : (
           <motion.div
             key="main"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <Navigation visible />
             <main className="relative">
